@@ -7,7 +7,7 @@
 ██╔═██╗ ██╔══██║██║ ███╔╝  ██╔══╝  ██║╚██╗██║
 ██║  ██╗██║  ██║██║███████╗███████╗██║ ╚████║
 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝
-Netra — Continuous AI Governance
+KAIZEN — Continuous AI Governance
 ```
 
 **The Autonomous AI Safety Layer That Never Sleeps**
@@ -35,13 +35,13 @@ Enterprise AI agents powered by LLMs (GPT-4, Llama, Gemini) are being deployed t
 
 These agents can **hallucinate**, get **prompt-injected**, or simply act on **flawed logic** — and the damage happens in milliseconds, before any human can intervene.
 
-**Netra is the last line of defence.**
+**KAIZEN is the last line of defence.**
 
 ---
 
-## ⚡ What is Netra?
+## ⚡ What is KAIZEN?
 
-**Netra** (Netra — *continuous improvement*) is a real-time **AI Governance Middleware** — an invisible tollbooth that intercepts every AI agent tool call **before it executes**, evaluates it through a three-pillar governance engine, and deterministically returns:
+**KAIZEN** (KAIZEN — *continuous improvement*) is a real-time **AI Governance Middleware** — an invisible tollbooth that intercepts every AI agent tool call **before it executes**, evaluates it through a three-pillar governance engine, and deterministically returns:
 
 | Decision | Meaning |
 |----------|---------|
@@ -63,7 +63,7 @@ All decisions are logged to an immutable audit trail and summarized in auto-gene
                        │ Tool Call Payload
                        ▼
 ┌─────────────────────────────────────────────────────────┐
-│              Netra GOVERNANCE MIDDLEWARE                 │
+│              KAIZEN GOVERNANCE MIDDLEWARE                 │
 │  ┌─────────────┐  ┌──────────────┐  ┌────────────────┐  │
 │  │  🔒 Rules   │  │  🧠 Memory   │  │  📊 Risk Score │  │
 │  │   Engine    │  │  Validator   │  │  (ML Anomaly)  │  │
@@ -122,7 +122,7 @@ An **Isolation Forest** model trained on transaction features:
 | 🤖 **Agent Radar** | Trust scores and permission levels for each deployed agent |
 | 📬 **HITL Inbox** | Human-in-the-loop queue for escalated decisions |
 | 🧠 **Memory Vault** | Query ChromaDB to inspect any customer's fraud history |
-| 🔴 **Rogue Agent Simulator** | Fire test scenarios and watch Netra intercept live |
+| 🔴 **Rogue Agent Simulator** | Fire test scenarios and watch KAIZEN intercept live |
 | 📄 **CIO Brief** | Auto-generated PDF governance report for executive review |
 | 🌐 **Multi-language UI** | English, Japanese, Hindi, Spanish, Marathi |
 
@@ -138,8 +138,8 @@ An **Isolation Forest** model trained on transaction features:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/immortalfoodie/Netra.git
-cd Netra
+git clone https://github.com/immortalfoodie/KAIZEN.git
+cd KAIZEN
 ```
 
 ### 2. Backend Setup
@@ -178,7 +178,7 @@ Once both servers are running, open **http://localhost:5173** and:
 
 1. **Click the red `ROGUE AGENT DEMO` button** in the sidebar
 2. Switch between tabs:
-   - **🤖 Live Agent** — Launch a real Groq LLM agent and watch Netra intercept its tool calls in real-time
+   - **🤖 Live Agent** — Launch a real Groq LLM agent and watch KAIZEN intercept its tool calls in real-time
    - **⚡ Manual Scenarios** — Fire pre-built safe / suspicious / dangerous transactions
    - **🧪 What-If Playground** — Build any custom scenario and test the governance outcome
 3. **Watch the Decision Pipeline** light up with APPROVE / ESCALATE / BLOCK in real-time
@@ -192,7 +192,7 @@ All settings are managed via `backend/.env`:
 
 ```env
 # Core
-APP_NAME=Netra
+APP_NAME=KAIZEN
 ENVIRONMENT=development
 
 # LLM (for live agent demo)
@@ -239,7 +239,7 @@ TWILIO_WHATSAPP_TO=whatsapp:+91XXXXXXXXXX
 ## 📁 Project Structure
 
 ```
-Netra/
+KAIZEN/
 ├── backend/
 │   ├── main.py                  # FastAPI entry point
 │   ├── config.py                # Settings & thresholds

@@ -1,5 +1,5 @@
 """
-Netra — Decision Engine
+KAIZEN — Decision Engine
 Orchestrator: Rules → Memory → Risk → Final Decision
 """
 

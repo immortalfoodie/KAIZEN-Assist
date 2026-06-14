@@ -1,5 +1,5 @@
 """
-Netra — Main Application
+KAIZEN — Main Application
 FastAPI server with all routers, CORS, and lifecycle management
 """
 
@@ -87,7 +87,7 @@ async def lifespan(app: FastAPI):
     yield
 
     # ── Shutdown ────────────────────────────────────────────────────────
-    logger.info("Shutting down Netra...")
+    logger.info("Shutting down KAIZEN...")
 
 
 # ── Create FastAPI app ───────────────────────────────────────────────────────
@@ -146,9 +146,21 @@ app.include_router(roi_router.router)
 app.include_router(report_router.router)
 
 
+# Serve frontend static assets if the folder exists
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "dist"))
+
 # ── Root endpoint ────────────────────────────────────────────────────────────
 @app.get("/", tags=["root"])
-async def root():
+async def root(request: Request):
+    accept = request.headers.get("accept", "")
+    index_path = os.path.join(frontend_dist, "index.html")
+    if "text/html" in accept and os.path.exists(index_path):
+        return FileResponse(index_path)
+        
     return {
         "name": settings.APP_NAME,
         "version": settings.APP_VERSION,
@@ -167,6 +179,10 @@ async def root():
             "health": "GET /api/v1/health",
         },
     }
+
+if os.path.exists(frontend_dist):
+    app.mount("/", StaticFiles(directory=frontend_dist), name="frontend")
+    logger.info(f"✓ Serving frontend static files from {frontend_dist}")
 
 
 # ── CLI entry point ─────────────────────────────────────────────────────────

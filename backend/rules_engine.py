@@ -1,5 +1,5 @@
 """
-Netra — Rules Engine (Pillar 1)
+KAIZEN — Rules Engine (Pillar 1)
 Deterministic policy evaluation against configurable business rules
 """
 

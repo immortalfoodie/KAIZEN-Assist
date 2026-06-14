@@ -1,5 +1,5 @@
 """
-Netra — Pydantic Models
+KAIZEN — Pydantic Models
 Request/response schemas for all API endpoints
 """
 

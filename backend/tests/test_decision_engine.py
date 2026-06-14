@@ -7,6 +7,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import pytest
+import pytest_asyncio
 import asyncio
 from decision_engine import DecisionEngine
 from rules_engine import RulesEngine
@@ -14,7 +15,7 @@ from memory_validator import MemoryValidator
 from risk_scorer import RiskScorer
 from audit_logger import AuditLogger
 from models import AgentAction
-from database import init_db, DATABASE_PATH
+from database import init_db
 
 # Use test database
 os.environ["DATABASE_PATH"] = "data/test_governance.db"
@@ -43,10 +44,10 @@ FRAUD_HISTORY = [
 ]
 
 
-@pytest.fixture
-def engine():
+@pytest_asyncio.fixture
+async def engine():
     """Create a full decision engine for testing."""
-    asyncio.get_event_loop().run_until_complete(init_db())
+    await init_db()
 
     rules = RulesEngine()
     memory = MemoryValidator()

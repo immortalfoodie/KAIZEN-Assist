@@ -1,4 +1,4 @@
-/* ── Netra — Japanese Decorative Styles ──────────────────── */
+/* ── KAIZEN — Japanese Decorative Styles ──────────────────── */
 
 /* Floating sakura petal particles */
 .sakura-particle {
@@ -123,7 +123,7 @@
 }
 
 /* Japanese-inspired input styles */
-.netra-input {
+.kaizen-input {
   background: rgba(13, 17, 23, 0.8);
   border: 1px solid rgba(212, 168, 83, 0.2);
   border-radius: 8px;
@@ -133,18 +133,18 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.netra-input:focus {
+.kaizen-input:focus {
   outline: none;
   border-color: rgba(212, 168, 83, 0.5);
   box-shadow: 0 0 12px rgba(212, 168, 83, 0.1);
 }
 
-.netra-input::placeholder {
+.kaizen-input::placeholder {
   color: rgba(201, 209, 217, 0.35);
 }
 
 /* Select element dark styling */
-.netra-select {
+.kaizen-select {
   background: rgba(13, 17, 23, 0.8);
   border: 1px solid rgba(212, 168, 83, 0.2);
   border-radius: 8px;
@@ -159,7 +159,7 @@
   padding-right: 36px;
 }
 
-.netra-select:focus {
+.kaizen-select:focus {
   outline: none;
   border-color: rgba(212, 168, 83, 0.5);
 }

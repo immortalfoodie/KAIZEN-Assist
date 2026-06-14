@@ -8,4 +8,5 @@ async def run():
         import traceback
         traceback.print_exc()
 
-asyncio.run(run())
+if __name__ == "__main__":
+    asyncio.run(run())

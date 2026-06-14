@@ -1,5 +1,5 @@
 """
-Netra — Audit Logger
+KAIZEN — Audit Logger
 Persistent audit trail for all governance decisions
 """
 
@@ -70,7 +70,7 @@ class AuditLogger:
             
             emoji = "🛑" if decision.decision == "BLOCK" else "⚠️"
             message_body = (
-                f"{emoji} *NETRA GOVERNANCE ALERT* {emoji}\n\n"
+                f"{emoji} *KAIZEN GOVERNANCE ALERT* {emoji}\n\n"
                 f"*Action:* {action.action_type.upper()}\n"
                 f"*Agent:* {action.agent_name}\n"
                 f"*Amount:* ₹{action.amount:,.0f}\n"

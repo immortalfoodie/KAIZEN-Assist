@@ -40,9 +40,9 @@ class TestMemoryValidator:
 
     def test_deduplication(self):
         """Loading same data twice should not create duplicates."""
-        initial_count = self.validator.collection.count()
+        initial_count = len(self.validator._loaded_ids)
         self.validator.load_historical_data(MOCK_HISTORY)
-        assert self.validator.collection.count() == initial_count
+        assert len(self.validator._loaded_ids) == initial_count
 
     def test_query_fraud_customer(self):
         """Querying a customer with fraud history should return warnings."""

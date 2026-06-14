@@ -1,5 +1,5 @@
 """
-Netra — Real Agent Tools with Governance Interception
+KAIZEN — Real Agent Tools with Governance Interception
 Tools that perform REAL actions (file writes, DB queries) but are
 intercepted by the governance pipeline before execution.
 
@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class GovernanceException(Exception):
-    """Raised when NETRA blocks an action."""
+    """Raised when KAIZEN blocks an action."""
     pass
 
 
@@ -67,7 +67,7 @@ def evaluate_via_governance(
 
             if decision == "BLOCK":
                 raise GovernanceException(
-                    f"🛑 BLOCKED by Netra | Risk Score: {risk_score}/100 | Reason: {reasoning}"
+                    f"🛑 BLOCKED by KAIZEN | Risk Score: {risk_score}/100 | Reason: {reasoning}"
                 )
 
             return result

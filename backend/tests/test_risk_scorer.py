@@ -87,5 +87,6 @@ class TestRiskScorer:
         """Feature extraction should produce correct shape."""
         action = make_action(amount=5000, timestamp="2026-04-09T15:30:00Z")
         features = self.scorer.extract_features(action)
-        assert features.shape == (1, 6)
-        assert features[0][0] == 5000  # amount
+        assert isinstance(features, list)
+        assert len(features) == 6
+        assert features[0] == 5000  # amount

@@ -1,5 +1,5 @@
 """
-Netra — Database Layer
+KAIZEN — Database Layer
 SQLite via aiosqlite for zero-config persistent storage
 """
 
@@ -8,14 +8,12 @@ import os
 from contextlib import asynccontextmanager
 from config import settings
 
-DATABASE_PATH = settings.DATABASE_PATH
-
-
 async def init_db():
     """Create database directory and tables if they don't exist."""
-    os.makedirs(os.path.dirname(DATABASE_PATH) or ".", exist_ok=True)
+    db_path = settings.DATABASE_PATH
+    os.makedirs(os.path.dirname(db_path) or ".", exist_ok=True)
 
-    async with aiosqlite.connect(DATABASE_PATH) as db:
+    async with aiosqlite.connect(db_path) as db:
         await db.executescript(SCHEMA_SQL)
         await db.commit()
 
@@ -83,7 +81,7 @@ CREATE TABLE IF NOT EXISTS risk_scores (
 @asynccontextmanager
 async def get_db():
     """Async context manager for database connections."""
-    db = await aiosqlite.connect(DATABASE_PATH)
+    db = await aiosqlite.connect(settings.DATABASE_PATH)
     db.row_factory = aiosqlite.Row
     try:
         yield db

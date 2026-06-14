@@ -1,5 +1,5 @@
 """
-Netra — Seed Data Loader
+KAIZEN — Seed Data Loader
 Seeds the database and ChromaDB with historical data on first run
 """
 

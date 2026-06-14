@@ -8,15 +8,41 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 # Use test database
 os.environ["DATABASE_PATH"] = "data/test_api.db"
+import config
+config.settings.DATABASE_PATH = "data/test_api.db"
 
 import pytest
+import pytest_asyncio
 from httpx import AsyncClient, ASGITransport
 from main import app
+from database import init_db
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def client():
     """Create an async test client."""
+    await init_db()
+    
+    # Manually initialize engines if not done by ASGI lifespan in tests
+    from routers import governance, audit, metrics, memory
+    if governance.decision_engine is None:
+        from rules_engine import RulesEngine
+        from memory_validator import MemoryValidator
+        from risk_scorer import RiskScorer
+        from audit_logger import AuditLogger
+        from decision_engine import DecisionEngine
+        
+        rules = RulesEngine()
+        mem = MemoryValidator()
+        risk = RiskScorer()
+        aud = AuditLogger()
+        
+        dec_eng = DecisionEngine(rules, mem, risk, aud)
+        governance.decision_engine = dec_eng
+        audit.audit_logger = aud
+        metrics.audit_logger = aud
+        memory.memory_validator = mem
+        
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
         yield ac

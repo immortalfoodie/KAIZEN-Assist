@@ -1,6 +1,6 @@
-# Netra — UI Integration Guide
+# KAIZEN — UI Integration Guide
 
-> **For Frontend Developers**: This document is your complete reference for integrating with the Netra backend. Every API endpoint, payload format, and event type is documented here with `curl` examples.
+> **For Frontend Developers**: This document is your complete reference for integrating with the KAIZEN backend. Every API endpoint, payload format, and event type is documented here with `curl` examples.
 
 ---
 
